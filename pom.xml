@@ -7,11 +7,10 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>ribbon-server</module>
         <module>eureka-server</module>
         <module>zuul-server</module>
-        <module>service-demo1</module>
-        <module>service-demo2</module>
+        <module>service-common</module>
+        <module>service-demo</module>
     </modules>
     <dependencies>
         <dependency>
