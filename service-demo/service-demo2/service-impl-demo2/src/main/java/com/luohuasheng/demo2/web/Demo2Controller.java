@@ -1,13 +1,13 @@
-package com.luohuasheng.web;
+package com.luohuasheng.demo2.web;
 
+import com.luohuasheng.demo2.facade.Demo2Facade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 @RestController
-public class Demo2Controller {
+public class Demo2Controller implements Demo2Facade {
 
     private final Logger logger = Logger.getGlobal();
 
@@ -33,8 +33,8 @@ public class Demo2Controller {
     @Autowired
     private LoadBalancerClient loadBalancerClient;
 
-    @RequestMapping(value = "/sub", method = RequestMethod.GET)
-    public List<String> sub(@RequestParam Integer a, @RequestParam Integer b) {
+    @Override
+    public List<String> sub(Integer a, Integer b) {
         List<String> messages = new ArrayList<>();
 
         for (String serviceId : client.getServices()) {
@@ -52,10 +52,14 @@ public class Demo2Controller {
         return messages;
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String add(@RequestParam Integer a, @RequestParam Integer b) {
+    @Override
+    public List<String> add(Integer a, Integer b) {
         this.loadBalancerClient.choose("service-demo1");
-        return restTemplate.getForEntity("http://service-demo1/add?a=" + a + "&b=" + b, String.class).getBody();
+        return restTemplate.exchange("http://service-demo1/add?a=" + a + "&b=" + b,
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<List<String>>() {
+                }).getBody();
 
     }
 }

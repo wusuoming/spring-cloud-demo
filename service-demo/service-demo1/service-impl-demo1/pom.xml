@@ -21,6 +21,12 @@
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>com.luohuasheng</groupId>
+            <artifactId>service-facade-demo1</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -28,7 +34,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.luohuasheng.ServiceDemo1Application</mainClass>
+                    <mainClass>com.luohuasheng.demo2.ServiceDemo1Application</mainClass>
                 </configuration>
                 <executions>
                     <execution>
