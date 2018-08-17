@@ -5,8 +5,6 @@ import com.luohuasheng.demo2.facade.Demo2Facade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.logging.Logger;
-
 /**
  * @author panda
  */

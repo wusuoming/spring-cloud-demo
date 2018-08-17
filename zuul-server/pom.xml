@@ -31,6 +31,12 @@
             <artifactId>spring-cloud-zuul-ratelimit</artifactId>
             <version>1.0.7.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>com.luohuasheng</groupId>
+            <artifactId>service-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
 
     </dependencies>
 
