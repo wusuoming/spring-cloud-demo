@@ -1,4 +1,4 @@
-package com.luohuasheng.demo2.facade;
+package com.luohuasheng.demo1.facade;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * @author panda
  */
-@FeignClient(name = "service-demo2")
-public interface Demo2Facade {
+@FeignClient(name = "service-demo1")
+public interface Demo1Facade {
+
     @RequestMapping(value = "/sub", method = RequestMethod.GET)
     Integer sub(@RequestParam("a") Integer a, @RequestParam("b") Integer b);
 

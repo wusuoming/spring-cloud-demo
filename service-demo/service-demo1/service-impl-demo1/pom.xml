@@ -19,11 +19,16 @@
             <groupId>com.luohuasheng</groupId>
             <artifactId>service-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.luohuasheng</groupId>
             <artifactId>service-facade-demo1</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.luohuasheng</groupId>
+            <artifactId>service-facade-demo2</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
@@ -34,7 +39,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.luohuasheng.demo2.ServiceDemo1Application</mainClass>
+                    <mainClass>com.luohuasheng.demo1.ServiceDemo1Application</mainClass>
                 </configuration>
                 <executions>
                     <execution>

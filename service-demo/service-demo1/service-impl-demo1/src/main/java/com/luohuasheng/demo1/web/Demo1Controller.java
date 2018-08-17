@@ -1,8 +1,10 @@
-package com.luohuasheng.demo2.web;
+package com.luohuasheng.demo1.web;
 
 import com.luohuasheng.demo1.facade.Demo1Facade;
 import com.luohuasheng.demo2.facade.Demo2Facade;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.logging.Logger;
@@ -11,21 +13,22 @@ import java.util.logging.Logger;
  * @author panda
  */
 @RestController
-public class Demo2Controller implements Demo2Facade {
+public class Demo1Controller implements Demo1Facade {
 
 
     @Autowired
-    private Demo1Facade demo1Facade;
+    private Demo2Facade demo2Facade;
+
+    @Override
+    public Integer add(Integer a, Integer b) {
+        return a + b;
+    }
 
 
     @Override
     public Integer sub(Integer a, Integer b) {
-        return a - b;
+        return demo2Facade.sub(a, b);
     }
 
-    @Override
-    public Integer add(Integer a, Integer b) {
-        return demo1Facade.add(a, b);
 
-    }
 }
