@@ -27,14 +27,10 @@
             <version>1.0.7.RELEASE</version>
         </dependency>
         <dependency>
-            <groupId>com.luohuasheng</groupId>
-            <artifactId>service-common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
         </dependency>
-
     </dependencies>
-
 
 
     <build>
