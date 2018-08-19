@@ -1,5 +1,6 @@
 package com.luohuasheng.demo1;
 
+import com.luohuasheng.annotation.EnableSpringCloud;
 import com.luohuasheng.config.CommonConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
@@ -11,8 +12,8 @@ import org.springframework.context.annotation.Import;
 /**
  * @author panda
  */
-@Import(CommonConfig.class)
 @SpringBootApplication
+@EnableSpringCloud
 public class ServiceDemo1Application extends SpringBootServletInitializer {
 
     public static void main(String[] args) {

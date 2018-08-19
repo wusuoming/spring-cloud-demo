@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: zuul-server
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        service-name: zuul-server
+        instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
+        ip-address: true
+        register: false
+server:
+  port: 7002
+zuul:
+  routes:
+    api1:
+      path: /api1/**
+      serviceId: service-demo1
+    api2:
+      path: /api2/**
+      serviceId: service-demo2
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://root:demo123@localhost:7071/eureka/
+#  instance:
+#    prefer-ip-address: true
+#    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}}
+#    appname: zuul-server
