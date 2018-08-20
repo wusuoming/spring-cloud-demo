@@ -1,0 +1,5 @@
+server:
+  port: 9999
+spring:
+  application:
+    name: zipkin-server #注册到注册中心的名字，可以映射ip
