@@ -41,6 +41,8 @@ public class BaseExceptionHandler {
         } else {
             resultVO.setCode(String.valueOf(status.value()));
         }
+        resultVO.setMsg(messageSource.getMessage(resultVO.getCode(), null, e.getMessage(), ServletUtils.request().getLocale()));
+
         return new ResponseEntity<>(resultVO, status);
     }
 }

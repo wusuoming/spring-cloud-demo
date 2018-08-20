@@ -11,6 +11,8 @@
         <module>zuul-server</module>
         <module>service-common</module>
         <module>service-demo</module>
+        <module>config-server</module>
+        <module>zipkin-server</module>
     </modules>
     <dependencies>
         <dependency>
