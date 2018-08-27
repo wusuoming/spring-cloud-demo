@@ -18,7 +18,6 @@ spring:
         instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance_id:${server.port}}
         ip-address: true
         register: true
-        prefer-ip-address: true
     config:
       server:
         git:
