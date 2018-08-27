@@ -1,7 +1,6 @@
 package com.luohuasheng;
 
 
-import com.luohuasheng.controller.ZuulController;
 import com.luohuasheng.filter.AccessFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
