@@ -39,10 +39,14 @@
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
-                <version>0.4.3</version>
+                <version>1.1.1</version>
                 <configuration>
                     <!--镜像名称-->
-                    <imageName>${project.artifactId}</imageName>
+                    <imageName>luohuasheng/${project.artifactId}</imageName>
+                    <!--TAG,这里用工程版本号-->
+                    <imageTags>
+                        <imageTag>${project.version}</imageTag>
+                    </imageTags>
                     <!--相当于from基于父镜像-->
                     <baseImage>openjdk:8u171-jdk-alpine3.8</baseImage>
                     <!--远程docker服务地址-->
