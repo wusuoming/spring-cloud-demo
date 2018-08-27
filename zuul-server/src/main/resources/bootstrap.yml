@@ -10,6 +10,7 @@ spring:
         instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance-id}:${server.port}
         ip-address: true
         register: false
+        prefer-ip-address: true
     config:
       label: master
       profile: test
