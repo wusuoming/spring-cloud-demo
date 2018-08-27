@@ -1,6 +1,11 @@
 package com.luohuasheng.config;
 
+import com.netflix.client.config.IClientConfig;
 import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServlet;
+import com.netflix.loadbalancer.IRule;
+import com.netflix.loadbalancer.RandomRule;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -48,5 +53,13 @@ public class SpringCloudConfig implements WebMvcConfigurer {
     RestTemplate restTemplate() {
         return new RestTemplate();
     }
+
+
+    @Bean
+    @ConditionalOnMissingBean
+    public IRule ribbonRule() {
+        return new RandomRule();
+    }
+
 
 }
