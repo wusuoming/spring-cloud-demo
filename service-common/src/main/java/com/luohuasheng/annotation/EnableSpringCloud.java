@@ -10,6 +10,8 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
+@EnableSwagger2
+@EnableI18n
 @Import({CommonConfig.class, SpringCloudConfig.class})
 public @interface EnableSpringCloud {
 

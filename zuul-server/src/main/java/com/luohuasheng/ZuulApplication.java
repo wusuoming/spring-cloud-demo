@@ -2,20 +2,17 @@ package com.luohuasheng;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.luohuasheng.annotation.EnableSwagger2;
 import com.luohuasheng.filter.AccessFilter;
 import org.apache.http.entity.ContentType;
-import org.json.JSONStringer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.json.JsonParser;
-import org.springframework.boot.json.JsonSimpleJsonParser;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.cloud.client.SpringCloudApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.cloud.netflix.zuul.filters.ZuulProperties;
@@ -35,7 +32,7 @@ import java.util.Map;
  */
 
 @SpringCloudApplication
-@EnableDiscoveryClient
+@EnableSwagger2(resourcePackage = "com.luohuasheng", title = "API网关", description = "所有服务都经过API网关进行处理")
 @EnableZuulProxy
 public class ZuulApplication extends SpringBootServletInitializer {
 
@@ -99,8 +96,8 @@ public class ZuulApplication extends SpringBootServletInitializer {
             swaggerResources.add(swaggerResource);
             for (ZuulProperties.ZuulRoute route : zuulProperties.getRoutes().values()) {
                 Map<String, String> routeResource = new HashMap<>(0);
-                String path = route.getPath().replaceAll("\\*","");
-                path = path.lastIndexOf("/")>0?path.substring(0,path.length()-1):path;
+                String path = route.getPath().replaceAll("\\*", "");
+                path = path.lastIndexOf("/") > 0 ? path.substring(0, path.length() - 1) : path;
                 routeResource.put("name", path);
                 routeResource.put("url", path + "/v2/api-docs");
                 routeResource.put("swaggerVersion", "2.0");
