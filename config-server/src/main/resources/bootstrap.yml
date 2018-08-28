@@ -10,6 +10,9 @@ spring:
   application:
     name: config-server
   cloud:
+    inetutils:
+      preferredNetworks:
+      - 192.168
     consul:
       host: localhost
       port: 8500
