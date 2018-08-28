@@ -1,12 +1,9 @@
 
 package com.luohuasheng.dto;
 
-import com.google.common.collect.Lists;
-
 import javax.servlet.ServletContext;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.List;
 
 
 public class ServletInfoDto {
@@ -17,8 +14,6 @@ public class ServletInfoDto {
 
     private int serverPort = 80;
     private String contextPath;
-    private List<String> consumers = Lists.newArrayList();
-    private List<String> providers = Lists.newArrayList();
     private String name;
 
     public ServletInfoDto(ServletContext servletContext) {
@@ -28,7 +23,7 @@ public class ServletInfoDto {
         localAddr = null;
         try {
             this.localAddr = InetAddress.getLocalHost().getHostAddress();
-            this.localName= InetAddress.getLocalHost().getHostName();
+            this.localName = InetAddress.getLocalHost().getHostName();
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
@@ -92,21 +87,6 @@ public class ServletInfoDto {
         this.name = name;
     }
 
-    public List<String> getConsumers() {
-        return consumers;
-    }
-
-    public void setConsumers(List<String> consumers) {
-        this.consumers = consumers;
-    }
-
-    public List<String> getProviders() {
-        return providers;
-    }
-
-    public void setProviders(List<String> providers) {
-        this.providers = providers;
-    }
 
     public String getLocalName() {
         return localName;
