@@ -10,7 +10,6 @@ spring:
         instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance-id}:${server.port}
         ip-address: true
         register: true
-        health-check-url: http://${spring.cloud.client.ip-address}:${server.port}/swagger-ui.html
     config:
       label: master
       profile: test
