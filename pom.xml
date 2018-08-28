@@ -7,7 +7,6 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>eureka-server</module>
         <module>zuul-server</module>
         <module>service-common</module>
         <module>service-demo</module>
