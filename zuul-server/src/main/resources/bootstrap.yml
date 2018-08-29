@@ -9,7 +9,7 @@ spring:
         service-name: zuul-server
         instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${spring.application.instance-id}:${server.port}
         ip-address: true
-        register: false
+        register: true
     config:
       label: master
       profile: test
