@@ -68,7 +68,8 @@
                     <!--相当于from基于父镜像-->
                     <baseImage>openjdk:8u171-jdk-alpine3.8</baseImage>
                     <!--远程docker服务地址-->
-                    <entryPoint>["java","-jar","/${project.build.finalName}.jar"]</entryPoint>
+                    <!--<entryPoint>["java","-jar","/${project.build.finalName}.jar"]</entryPoint>-->
+                    <cmd>java -jar ${project.build.finalName}.jar</cmd>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>
